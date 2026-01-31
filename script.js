@@ -1,33 +1,32 @@
-// Typing animation
+// Typing effect
 const text = "Sanket Sharma";
-let index = 0;
-const typingEl = document.querySelector(".typing");
+let i = 0;
+const el = document.querySelector(".typing");
 
-function typeEffect() {
-  if (index < text.length) {
-    typingEl.textContent += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 120);
+function typeText() {
+  if (i < text.length) {
+    el.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeText, 120);
   }
 }
-typeEffect();
+typeText();
 
 // Theme toggle
 function toggleTheme() {
   document.body.classList.toggle("light");
-  const btn = document.querySelector(".theme-toggle");
-  btn.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+  document.querySelector(".theme-toggle").textContent =
+    document.body.classList.contains("light") ? "☀️" : "🌙";
 }
 
 // Scroll animation
 const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
-
-sections.forEach(section => observer.observe(section));
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("show");
+    });
+  },
+  { threshold: 0.2 }
+);
+sections.forEach(sec => observer.observe(sec));
