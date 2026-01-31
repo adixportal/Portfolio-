@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -15,78 +15,80 @@
 </head>
 <body>
 
-<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+<div class="container">
 
-<!-- WhatsApp -->
-<a href="https://wa.me/916367317712" class="float-btn whatsapp" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
+  <!-- LEFT CARD -->
+  <aside class="card profile-card">
+    <h1>Sanket Sharma</h1>
+    <p class="role">Frontend Developer</p>
 
-<!-- Instagram -->
-<a href="https://instagram.com/s4adw" class="float-btn instagram" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
+    <div class="info">
+      <p><i class="fas fa-envelope"></i> sanket.8824@gmail.com</p>
+      <p><i class="fab fa-github"></i> github.com/adixportal</p>
+      <p><i class="fab fa-instagram"></i> instagram.com/s4adw</p>
+    </div>
 
-<header class="hero">
-  <h1><span class="muted">Hi, I’m</span><br>Sanket Sharma</h1>
-  <p class="subtitle">Frontend Developer focused on clean & usable web experiences.</p>
-  <a href="#contact" class="btn">Contact Me</a>
-</header>
+    <div class="actions">
+      <a href="https://wa.me/916367317712" target="_blank" class="btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="#contact" class="btn primary">Contact</a>
+    </div>
+  </aside>
 
-<section>
-  <h2>About</h2>
-  <p>
-    I am a beginner frontend developer who enjoys building simple, clean and
-    responsive websites. Currently improving my skills by working on real projects.
-  </p>
-</section>
+  <!-- RIGHT CONTENT -->
+  <main class="content">
 
-<section>
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>GitHub</span>
-    <span>Responsive Design</span>
-  </div>
-</section>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I’m Sanket Sharma, a beginner frontend developer passionate about building
+        clean, modern and responsive websites. I’m currently improving my frontend
+        skills and working on real-world projects.
+      </p>
+    </section>
 
-<section>
-  <h2>Project</h2>
-  <div class="card">
-    <h3>Expenses Checker App</h3>
-    <p>
-      A simple web app that helps users track daily expenses and understand
-      their spending habits in an easy way.
-    </p>
-  </div>
-</section>
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>GitHub</span>
+        <span>Responsive Design</span>
+      </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+    <section>
+      <h2>Project</h2>
+      <div class="card-box">
+        <h3>Expenses Checker App</h3>
+        <p>
+          A simple expense checker application that helps users track daily expenses
+          and manage spending effectively.
+        </p>
+      </div>
+    </section>
 
-  <form action="https://formsubmit.co/sanket.8824@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
+    <section id="contact">
+      <h2>Contact</h2>
 
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+      <form action="https://formsubmit.co/sanket.8824@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
 
-    <button type="submit">Send Message</button>
-  </form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
 
-  <div class="socials">
-    <a href="https://github.com/adixportal" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://instagram.com/s4adw" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="mailto:sanket.8824@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-</section>
+    <footer>
+      © 2026 Sanket Sharma
+    </footer>
 
-<footer>
-  © 2026 Sanket Sharma
-</footer>
+  </main>
+</div>
 
-<script src="script.js"></script>
 </body>
 </html>
