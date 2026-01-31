@@ -156,4 +156,7 @@ footer {
     position: relative;
   }
 }
-  
+  .actions a.active {
+  background: var(--accent);
+  color: white;
+  }
