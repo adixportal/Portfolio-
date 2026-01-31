@@ -5,8 +5,8 @@
   <title>Sanket Sharma | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -15,13 +15,6 @@
 </head>
 <body>
 
-<!-- Animated Background -->
-<div class="animated-bg"></div>
-
-<!-- Cursor Glow -->
-<div class="cursor-glow"></div>
-
-<!-- Theme Toggle -->
 <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
 <!-- WhatsApp -->
@@ -35,22 +28,22 @@
 </a>
 
 <header class="hero">
-  <h1 class="typing"></h1>
-  <p class="subtitle">Frontend Developer • UI Designer</p>
-  <a href="#contact" class="btn">Let’s Talk</a>
+  <h1><span class="muted">Hi, I’m</span><br>Sanket Sharma</h1>
+  <p class="subtitle">Frontend Developer focused on clean & usable web experiences.</p>
+  <a href="#contact" class="btn">Contact Me</a>
 </header>
 
-<section class="about">
-  <h2>About Me</h2>
+<section>
+  <h2>About</h2>
   <p>
-    I’m Sanket Sharma, a frontend developer who loves building clean,
-    modern and user-friendly websites with smooth animations.
+    I am a beginner frontend developer who enjoys building simple, clean and
+    responsive websites. Currently improving my skills by working on real projects.
   </p>
 </section>
 
-<section class="skills">
+<section>
   <h2>Skills</h2>
-  <div class="skill-box">
+  <div class="skills">
     <span>HTML</span>
     <span>CSS</span>
     <span>JavaScript</span>
@@ -59,27 +52,27 @@
   </div>
 </section>
 
-<section class="projects">
-  <h2>Featured Project</h2>
-  <div class="project">
+<section>
+  <h2>Project</h2>
+  <div class="card">
     <h3>Expenses Checker App</h3>
     <p>
-      A simple expense checker app to track daily expenses and
-      manage spending effectively.
+      A simple web app that helps users track daily expenses and understand
+      their spending habits in an easy way.
     </p>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
   <h2>Contact</h2>
 
   <form action="https://formsubmit.co/sanket.8824@gmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="New Portfolio Message">
 
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" placeholder="Your Message" required></textarea>
+
     <button type="submit">Send Message</button>
   </form>
 
@@ -91,7 +84,7 @@
 </section>
 
 <footer>
-  <p>© 2026 Sanket Sharma</p>
+  © 2026 Sanket Sharma
 </footer>
 
 <script src="script.js"></script>
