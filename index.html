@@ -5,8 +5,8 @@
   <title>Sanket Sharma | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -15,11 +15,29 @@
 </head>
 <body>
 
+<!-- FLOATING GITHUB BUTTON -->
+<a href="https://github.com/adixportal" class="float-btn github" target="_blank" title="GitHub">
+  <i class="fab fa-github"></i>
+</a>
+
+<!-- FLOATING INSTAGRAM BUTTON -->
+<a href="https://instagram.com/s4adw" class="float-btn instagram" target="_blank" title="Instagram">
+  <i class="fab fa-instagram"></i>
+</a>
+
 <div class="container">
 
   <!-- LEFT CARD -->
-  <aside class="card profile-card">
-    <h1>Sanket Sharma</h1>
+  <aside class="profile-card">
+
+    <!-- NAME + PHOTO -->
+    <div class="profile-header">
+      <img
+        src="https://i.ibb.co/60rfV17N/22ab24cca9a171d7737eed0862a18100.jpg"
+        alt="Sanket Sharma Photo">
+      <h1>Sanket Sharma</h1>
+    </div>
+
     <p class="role">Frontend Developer</p>
 
     <div class="info">
@@ -34,12 +52,13 @@
       </a>
       <a href="#contact" class="btn primary">Contact</a>
     </div>
+
   </aside>
 
   <!-- RIGHT CONTENT -->
   <main class="content">
 
-    <section>
+    <section id="about">
       <h2>About Me</h2>
       <p>
         I’m Sanket Sharma, a beginner frontend developer passionate about building
@@ -48,7 +67,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="skills">
       <h2>Skills</h2>
       <div class="skills">
         <span>HTML</span>
@@ -59,7 +78,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="project">
       <h2>Project</h2>
       <div class="card-box">
         <h3>Expenses Checker App</h3>
@@ -90,5 +109,6 @@
   </main>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
