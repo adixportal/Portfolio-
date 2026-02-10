@@ -1,114 +1,320 @@
 <!DOCTYPE html>
-<DOCTYPE lang="en">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sanket Sharma | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Sanket Sharma | Python Coder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050b1a;
+  --glass:rgba(11,18,40,0.7);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#6366f1;
+  --green:#22c55e;
+  --border:rgba(255,255,255,0.08);
+}
 
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
 
-  <link rel="stylesheet" href="style.css">
+body{
+  background:linear-gradient(180deg,#020617,#050b1a);
+  color:var(--text);
+}
+
+/* ===== LAYOUT ===== */
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:50px 20px;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:40px;
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card{
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:38px 26px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
+/* ===== AVATAR ===== */
+.avatar{
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  margin:6px auto 0;
+  padding:3px;
+  background:linear-gradient(180deg,#6366f1,#38bdf8);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:50% 25%;
+  display:block;
+  background:#020617;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.04),
+    0 10px 28px rgba(0,0,0,0.65);
+}
+
+.profile-card h1{
+  margin-top:18px;
+  font-size:1.45rem;
+}
+
+.profile-card p{
+  margin-top:4px;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.profile-info{
+  text-align:left;
+  margin-top:26px;
+  font-size:0.9rem;
+}
+
+.profile-info div{
+  margin-bottom:10px;
+  color:var(--muted);
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  margin-top:22px;
+  font-weight:600;
+  text-decoration:none;
+  text-align:center;
+  background:var(--green);
+  color:#052e16;
+}
+
+/* ===== MAIN ===== */
+.main{
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding:80px 56px 90px;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(99,102,241,.25), transparent 60%),
+    radial-gradient(600px 220px at 80% 100%, rgba(56,189,248,.18), transparent 60%);
+}
+
+.hero h2{
+  font-size:3rem;
+  font-weight:900;
+  letter-spacing:-1px;
+  line-height:1.05;
+}
+
+.hero h2 span{
+  background:linear-gradient(90deg,#6366f1,#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:20px;
+  max-width:600px;
+  font-size:1.08rem;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:46px 56px;
+  border-top:1px solid var(--border);
+}
+
+section h3{
+  font-size:1.35rem;
+  margin-bottom:14px;
+}
+
+section p{
+  color:var(--muted);
+  font-size:1.02rem;
+  line-height:1.7;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.skill{
+  padding:8px 15px;
+  border-radius:20px;
+  background:#020617;
+  border:1px solid var(--border);
+  font-size:0.9rem;
+}
+
+/* ===== PROJECT ===== */
+.project{
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+}
+
+.project h4{
+  font-size:1.15rem;
+  margin-bottom:8px;
+}
+
+.project ul{
+  margin-top:10px;
+  padding-left:18px;
+  color:var(--muted);
+}
+
+.project a{
+  display:inline-block;
+  margin-top:14px;
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .container{
+    grid-template-columns:1fr;
+  }
+  .hero{
+    padding:60px 26px 70px;
+  }
+  .hero h2{
+    font-size:2.2rem;
+  }
+  section{
+    padding:40px 26px;
+  }
+}
+</style>
 </head>
+
 <body>
-
-<!-- FLOATING GITHUB BUTTON -->
-<a href="https://github.com/adixportal" class="float-btn github" target="_blank" title="GitHub">
-  <i class="fab fa-github"></i>
-</a>
-
-<!-- FLOATING INSTAGRAM BUTTON -->
-<a href="https://instagram.com/s4adw" class="float-btn instagram" target="_blank" title="Instagram">
-  <i class="fab fa-instagram"></i>
-</a>
 
 <div class="container">
 
-  <!-- LEFT CARD -->
+  <!-- PROFILE -->
   <aside class="profile-card">
-
-    <!-- NAME + PHOTO -->
-    <div class="profile-header">
-      <img
-        src="https://i.ibb.co/60rfV17N/22ab24cca9a171d7737eed0862a18100.jpg"
-        alt="Sanket Sharma Photo">
-      <h1>Sanket Sharma</h1>
+    <div class="avatar">
+      <img src="https://i.ibb.co/XrcXsvJR/40805baf87642155fe586486c373a0cf-1.jpg" alt="Sanket Sharma">
     </div>
 
-    <p class="role">Frontend Developer</p>
+    <h1>Sanket Sharma</h1>
+    <p>Python Coder · Student</p>
 
-    <div class="info">
-      <p><i class="fas fa-envelope"></i> sanketsharma.web@gmail.com</p>
-      <p><i class="fab fa-github"></i> github.com/adixportal</p>
-      <p><i class="fab fa-instagram"></i> instagram.com/s4adw</p>
+    <div class="profile-info">
+      <div>📧 sanketsharma.web@gmail.com</div>
+      <div>🐍 Python · Logic Focused</div>
+      <div>🌱 Learning Web Development</div>
     </div>
 
-    <div class="actions">
-      <a href="https://wa.me/916367317712" target="_blank" class="btn whatsapp">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="#contact" class="btn primary">Contact</a>
-    </div>
-
+    <a href="https://wa.me/916367317712" target="_blank" class="btn">
+      WhatsApp
+    </a>
   </aside>
 
-  <!-- RIGHT CONTENT -->
-  <main class="content">
+  <!-- MAIN -->
+  <main class="main">
 
-    <section id="about">
-      <h2>About Me</h2>
+    <div class="hero">
+      <h2>
+        Beginner<br>
+        <span>Python Coder</span>
+      </h2>
       <p>
-        I’m Sanket Sharma, a beginner frontend developer passionate about building
-        clean, modern and responsive websites. I’m currently improving my frontend
-        skills and working on real-world projects.
+        I’m a student developer with strong Python fundamentals.
+        I focus on logic building, clean code, and learning
+        real-world concepts step by step.
+      </p>
+    </div>
+
+    <section>
+      <h3>About Me</h3>
+      <p>
+        I prefer understanding concepts deeply instead of memorizing.
+        Python is my strongest language, and I’m gradually expanding
+        into web development and Firebase-based projects.
       </p>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
+    <section>
+      <h3>Skills</h3>
       <div class="skills">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>GitHub</span>
-        <span>Responsive Design</span>
+        <div class="skill">Python (Strong)</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">HTML (Learning)</div>
+        <div class="skill">CSS (Learning)</div>
+        <div class="skill">JavaScript (Beginner)</div>
+        <div class="skill">Firebase (Learning)</div>
       </div>
     </section>
 
-    <section id="project">
-      <h2>Project</h2>
-      <div class="card-box">
-        <h3>Expenses Checker App</h3>
+    <section>
+      <h3>Projects</h3>
+      <div class="project">
+        <h4>TrackMyPaisa – Expense Tracker</h4>
         <p>
-          A simple expense checker application that helps users track daily expenses
-          and manage spending effectively.
+          A personal expense tracking web application built as a
+          learning project to understand real-world logic and
+          Firebase integration.
         </p>
+        <ul>
+          <li>Add and store expenses securely</li>
+          <li>Real-time data storage using Firebase</li>
+          <li>Track total and category-wise expenses</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <strong>Tech Used:</strong> HTML, CSS, JavaScript, Firebase
+        </p>
+        <a href="https://trackmypaisa.netlify.app/" target="_blank">
+          🔗 Live Project
+        </a>
       </div>
     </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-
-      <form action="https://formsubmit.co/sanket.8824@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-
-    <footer>
-      © 2026 Sanket Sharma
-    </footer>
 
   </main>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
