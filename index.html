@@ -1,320 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Sanket Sharma | Python Coder</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sanket Sharma | Web Architect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000;
+            --accent: #00f2ff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-<style>
-:root{
-  --bg:#050b1a;
-  --glass:rgba(11,18,40,0.7);
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --accent:#6366f1;
-  --green:#22c55e;
-  --border:rgba(255,255,255,0.08);
-}
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            margin: 0; padding: 0;
+            scroll-behavior: smooth;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-}
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000 100%);
+            z-index: -2;
+        }
 
-body{
-  background:linear-gradient(180deg,#020617,#050b1a);
-  color:var(--text);
-}
+        .container { 
+            width: 100%; max-width: 1200px; 
+            margin: 0 auto; padding: 0 25px; 
+            box-sizing: border-box;
+        }
 
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:50px 20px;
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:40px;
-}
+        /* Hero - Typography Play */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-/* ===== PROFILE CARD ===== */
-.profile-card{
-  background:var(--glass);
-  backdrop-filter:blur(18px);
-  border:1px solid var(--border);
-  border-radius:26px;
-  padding:38px 26px;
-  text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,0.45);
-}
+        .name-wrapper {
+            position: relative;
+            font-family: 'Unbounded', sans-serif;
+            line-height: 0.85;
+            margin-bottom: 25px;
+        }
 
-/* ===== AVATAR ===== */
-.avatar{
-  width:112px;
-  height:112px;
-  border-radius:50%;
-  margin:6px auto 0;
-  padding:3px;
-  background:linear-gradient(180deg,#6366f1,#38bdf8);
-}
+        .name-1 {
+            font-size: clamp(3rem, 14vw, 8.5rem);
+            font-weight: 900;
+            color: #fff;
+            display: block;
+        }
 
-.avatar img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:50% 25%;
-  display:block;
-  background:#020617;
-  box-shadow:
-    inset 0 0 0 2px rgba(255,255,255,0.04),
-    0 10px 28px rgba(0,0,0,0.65);
-}
+        .name-2 {
+            font-size: clamp(3rem, 14vw, 8.5rem);
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent);
+            display: block;
+            margin-top: 5px;
+        }
 
-.profile-card h1{
-  margin-top:18px;
-  font-size:1.45rem;
-}
+        /* Bento Grid */
+        .tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            padding-bottom: 80px;
+        }
 
-.profile-card p{
-  margin-top:4px;
-  font-size:0.9rem;
-  color:var(--muted);
-}
+        .tile {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 35px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            grid-column: span 12;
+        }
 
-.profile-info{
-  text-align:left;
-  margin-top:26px;
-  font-size:0.9rem;
-}
+        .tile:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 242, 255, 0.08);
+        }
 
-.profile-info div{
-  margin-bottom:10px;
-  color:var(--muted);
-}
+        .tile h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
 
-/* ===== BUTTON ===== */
-.btn{
-  display:block;
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  margin-top:22px;
-  font-weight:600;
-  text-decoration:none;
-  text-align:center;
-  background:var(--green);
-  color:#052e16;
-}
+        /* Live Project Section */
+        .live-link-btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent);
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            gap: 10px;
+            transition: 0.3s;
+            margin-top: 25px;
+        }
 
-/* ===== MAIN ===== */
-.main{
-  background:var(--glass);
-  backdrop-filter:blur(18px);
-  border:1px solid var(--border);
-  border-radius:28px;
-  overflow:hidden;
-}
+        .live-link-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
 
-/* ===== HERO ===== */
-.hero{
-  padding:80px 56px 90px;
-  position:relative;
-}
+        .contact-card {
+            background: #fff;
+            color: #000;
+            padding: 60px 30px;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(600px 220px at 20% 0%, rgba(99,102,241,.25), transparent 60%),
-    radial-gradient(600px 220px at 80% 100%, rgba(56,189,248,.18), transparent 60%);
-}
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-.hero h2{
-  font-size:3rem;
-  font-weight:900;
-  letter-spacing:-1px;
-  line-height:1.05;
-}
+        .link-item {
+            text-decoration: none;
+            color: #000;
+            font-weight: 800;
+            padding: 18px;
+            border: 2px solid #000;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
 
-.hero h2 span{
-  background:linear-gradient(90deg,#6366f1,#38bdf8);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+        .link-item:hover { background: #000; color: #fff; }
 
-.hero p{
-  margin-top:20px;
-  max-width:600px;
-  font-size:1.08rem;
-  line-height:1.75;
-  color:var(--muted);
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:46px 56px;
-  border-top:1px solid var(--border);
-}
-
-section h3{
-  font-size:1.35rem;
-  margin-bottom:14px;
-}
-
-section p{
-  color:var(--muted);
-  font-size:1.02rem;
-  line-height:1.7;
-}
-
-/* ===== SKILLS ===== */
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.skill{
-  padding:8px 15px;
-  border-radius:20px;
-  background:#020617;
-  border:1px solid var(--border);
-  font-size:0.9rem;
-}
-
-/* ===== PROJECT ===== */
-.project{
-  background:#020617;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:22px;
-}
-
-.project h4{
-  font-size:1.15rem;
-  margin-bottom:8px;
-}
-
-.project ul{
-  margin-top:10px;
-  padding-left:18px;
-  color:var(--muted);
-}
-
-.project a{
-  display:inline-block;
-  margin-top:14px;
-  color:#38bdf8;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .container{
-    grid-template-columns:1fr;
-  }
-  .hero{
-    padding:60px 26px 70px;
-  }
-  .hero h2{
-    font-size:2.2rem;
-  }
-  section{
-    padding:40px 26px;
-  }
-}
-</style>
+        @media (min-width: 768px) {
+            .tile.span-8 { grid-column: span 8; }
+            .tile.span-4 { grid-column: span 4; }
+            .contact-links { flex-direction: row; justify-content: center; }
+            .project-flex { display: flex; gap: 40px; align-items: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="bg-gradient"></div>
 
-  <!-- PROFILE -->
-  <aside class="profile-card">
-    <div class="avatar">
-      <img src="https://i.ibb.co/XrcXsvJR/40805baf87642155fe586486c373a0cf-1.jpg" alt="Sanket Sharma">
+    <div class="container">
+        <section class="hero">
+            <p style="letter-spacing: 4px; opacity: 0.6; margin-bottom: 15px; font-weight: 600;">WEB ARCHITECT • 2026</p>
+            <div class="name-wrapper">
+                <span class="name-1">SANKET</span>
+                <span class="name-2">SHARMA</span>
+            </div>
+            <p style="max-width: 500px; opacity: 0.7; font-size: 1.15rem; line-height: 1.6;">
+                Building high-performance digital ecosystems. Specialized in <b>Python</b> backends and <b>Modern Web Systems</b>.
+            </p>
+        </section>
+
+        <div class="tiles-grid">
+            <div class="tile span-8">
+                <h3>Technical Mastery</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem;">Python</span>
+                    <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem;">Firebase</span>
+                    <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem;">JavaScript (ES6+)</span>
+                    <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 18px; border-radius: 100px; font-size: 0.85rem;">Modern CSS</span>
+                </div>
+            </div>
+
+            <div class="tile span-4">
+                <h3>Strategy</h3>
+                <p style="opacity: 0.7; font-size: 0.95rem;">Performance first. Clean code always. Scalable by default.</p>
+            </div>
+
+            <div class="tile span-12">
+                <div class="project-flex">
+                    <div style="flex: 1.5;">
+                        <span style="color: var(--accent); font-weight: 800; font-size: 0.75rem; letter-spacing: 2px;">LIVE PROJECT</span>
+                        <h2 style="font-family: 'Unbounded', sans-serif; font-size: 2.2rem; margin-top: 10px;">Expense Tracker Pro</h2>
+                        <p style="opacity: 0.8; font-size: 1.1rem; margin: 20px 0; line-height: 1.6;">
+                            Ek advance management tool jo daily transactions ko intelligent logic ke saath analyze karta hai. Real-time data sync aur high-end security ke saath built.
+                        </p>
+                        
+                        <a href="https://trackmypaisa.netlify.app/" target="_blank" class="live-link-btn">
+                            LAUNCH PROJECT 
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                    
+                    <div style="flex: 1; background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border: 1px solid var(--border); margin-top: 25px;">
+                        <h4 style="color: var(--accent); margin-bottom: 15px;">Features</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem; opacity: 0.8;">
+                            <li style="margin-bottom: 10px;">⚡ Real-time Cloud Sync</li>
+                            <li style="margin-bottom: 10px;">📊 Dynamic Data Visualization</li>
+                            <li style="margin-bottom: 10px;">🔐 Secure User Authentication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <h2 style="font-family: 'Unbounded', sans-serif; font-size: 1.8rem;">Let's Ignite.</h2>
+            <div class="contact-links">
+                <a href="https://wa.me/916367317712" class="link-item">WHATSAPP</a>
+                <a href="https://www.instagram.com/sanket.web?igsh=eG9yZ2pwYXpwcm9k" class="link-item">INSTAGRAM</a>
+                <a href="mailto:sanketsharma.web@gmail.com" class="link-item">EMAIL</a>
+            </div>
+        </div>
     </div>
 
-    <h1>Sanket Sharma</h1>
-    <p>Python Coder · Student</p>
-
-    <div class="profile-info">
-      <div>📧 sanketsharma.web@gmail.com</div>
-      <div>🐍 Python · Logic Focused</div>
-      <div>🌱 Learning Web Development</div>
-    </div>
-
-    <a href="https://wa.me/916367317712" target="_blank" class="btn">
-      WhatsApp
-    </a>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main">
-
-    <div class="hero">
-      <h2>
-        Beginner<br>
-        <span>Python Coder</span>
-      </h2>
-      <p>
-        I’m a student developer with strong Python fundamentals.
-        I focus on logic building, clean code, and learning
-        real-world concepts step by step.
-      </p>
-    </div>
-
-    <section>
-      <h3>About Me</h3>
-      <p>
-        I prefer understanding concepts deeply instead of memorizing.
-        Python is my strongest language, and I’m gradually expanding
-        into web development and Firebase-based projects.
-      </p>
-    </section>
-
-    <section>
-      <h3>Skills</h3>
-      <div class="skills">
-        <div class="skill">Python (Strong)</div>
-        <div class="skill">Problem Solving</div>
-        <div class="skill">HTML (Learning)</div>
-        <div class="skill">CSS (Learning)</div>
-        <div class="skill">JavaScript (Beginner)</div>
-        <div class="skill">Firebase (Learning)</div>
-      </div>
-    </section>
-
-    <section>
-      <h3>Projects</h3>
-      <div class="project">
-        <h4>TrackMyPaisa – Expense Tracker</h4>
-        <p>
-          A personal expense tracking web application built as a
-          learning project to understand real-world logic and
-          Firebase integration.
-        </p>
-        <ul>
-          <li>Add and store expenses securely</li>
-          <li>Real-time data storage using Firebase</li>
-          <li>Track total and category-wise expenses</li>
-        </ul>
-        <p style="margin-top:10px;">
-          <strong>Tech Used:</strong> HTML, CSS, JavaScript, Firebase
-        </p>
-        <a href="https://trackmypaisa.netlify.app/" target="_blank">
-          🔗 Live Project
-        </a>
-      </div>
-    </section>
-
-  </main>
-</div>
-
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".name-1", { x: -30, opacity: 0, duration: 1 });
+        gsap.from(".name-2", { x: 30, opacity: 0, duration: 1, delay: 0.2 });
+        
+        gsap.utils.toArray(".tile").forEach(tile => {
+            gsap.from(tile, {
+                y: 30, opacity: 0, duration: 0.8,
+                scrollTrigger: { trigger: tile, start: "top 92%" }
+            });
+        });
+    </script>
 </body>
 </html>
